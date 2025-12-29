@@ -340,7 +340,7 @@
 
       <div class="topInfo">
         <div class="chip">➕ Sabores extra: <b>Vainilla</b> · <b>Caramelo</b> · <b>Avellana</b></div>
-        <div class="chip">💵 Precios en <b>USD</b></div>
+        <div class="chip">💵 Precios en <b>USD</b> · <b id="sucursalTag">ROEST_CAYAMBE</b></div>
       </div>
     </header>
 
@@ -357,6 +357,8 @@
 
         <div class="content">
           <div class="list">
+
+            <!-- Espresso: Simple / Doble -->
             <div class="item">
               <div class="left">
                 <div class="name">Espresso</div>
@@ -364,7 +366,11 @@
               </div>
               <div class="right">
                 <div class="tag">2 oz</div>
-                <div class="price"><small>$</small>1.75 <span style="opacity:.55">/</span> <small>$</small>2.00</div>
+                <div class="price">
+                  <small>$</small><span data-id="espresso_simple">1.75</span>
+                  <span style="opacity:.55">/</span>
+                  <small>$</small><span data-id="espresso_doble">2.00</span>
+                </div>
               </div>
             </div>
 
@@ -375,7 +381,7 @@
               </div>
               <div class="right">
                 <div class="tag">6 oz</div>
-                <div class="price"><small>$</small>2.25</div>
+                <div class="price"><small>$</small><span data-id="americano">2.25</span></div>
               </div>
             </div>
 
@@ -386,7 +392,7 @@
               </div>
               <div class="right">
                 <div class="tag">6 oz</div>
-                <div class="price"><small>$</small>2.50</div>
+                <div class="price"><small>$</small><span data-id="cappuccino">2.50</span></div>
               </div>
             </div>
 
@@ -397,7 +403,7 @@
               </div>
               <div class="right">
                 <div class="tag">6 oz</div>
-                <div class="price"><small>$</small>2.50</div>
+                <div class="price"><small>$</small><span data-id="flat_white">2.50</span></div>
               </div>
             </div>
 
@@ -408,7 +414,7 @@
               </div>
               <div class="right">
                 <div class="tag">10 oz</div>
-                <div class="price"><small>$</small>2.75</div>
+                <div class="price"><small>$</small><span data-id="latte">2.75</span></div>
               </div>
             </div>
 
@@ -419,7 +425,7 @@
               </div>
               <div class="right">
                 <div class="tag">10 oz</div>
-                <div class="price"><small>$</small>3.25</div>
+                <div class="price"><small>$</small><span data-id="latte_sabores">3.25</span></div>
               </div>
             </div>
 
@@ -430,10 +436,11 @@
               </div>
               <div class="right">
                 <div class="tag">12 oz</div>
-                <div class="price"><small>$</small>3.50</div>
+                <div class="price"><small>$</small><span data-id="moccaccino">3.50</span></div>
               </div>
             </div>
 
+            <!-- Chocolate: 8 / 12 -->
             <div class="item">
               <div class="left">
                 <div class="name">Chocolate caliente</div>
@@ -441,9 +448,14 @@
               </div>
               <div class="right">
                 <div class="tag">8 oz / 12 oz</div>
-                <div class="price"><small>$</small>3.00 <span style="opacity:.55">/</span> <small>$</small>3.50</div>
+                <div class="price">
+                  <small>$</small><span data-id="chocolate_8">3.00</span>
+                  <span style="opacity:.55">/</span>
+                  <small>$</small><span data-id="chocolate_12">3.50</span>
+                </div>
               </div>
             </div>
+
           </div>
 
           <div class="note">
@@ -464,6 +476,7 @@
 
         <div class="content">
           <div class="list">
+
             <div class="item">
               <div class="left">
                 <div class="name">Iced Americano</div>
@@ -471,7 +484,7 @@
               </div>
               <div class="right">
                 <div class="tag">12 oz</div>
-                <div class="price"><small>$</small>3.00</div>
+                <div class="price"><small>$</small><span data-id="iced_americano">3.00</span></div>
               </div>
             </div>
 
@@ -482,7 +495,7 @@
               </div>
               <div class="right">
                 <div class="tag">12 oz</div>
-                <div class="price"><small>$</small>3.25</div>
+                <div class="price"><small>$</small><span data-id="iced_latte">3.25</span></div>
               </div>
             </div>
 
@@ -493,7 +506,7 @@
               </div>
               <div class="right">
                 <div class="tag">16 oz</div>
-                <div class="price"><small>$</small>3.75</div>
+                <div class="price"><small>$</small><span data-id="iced_latte_sabores">3.75</span></div>
               </div>
             </div>
 
@@ -504,7 +517,7 @@
               </div>
               <div class="right">
                 <div class="tag">12 oz</div>
-                <div class="price"><small>$</small>3.50</div>
+                <div class="price"><small>$</small><span data-id="frappuccino">3.50</span></div>
               </div>
             </div>
 
@@ -515,10 +528,11 @@
               </div>
               <div class="right">
                 <div class="tag">16 oz</div>
-                <div class="price"><small>$</small>4.00</div>
+                <div class="price"><small>$</small><span data-id="frappuccino_sabores">4.00</span></div>
               </div>
             </div>
 
+            <!-- Cold Brew: 12 / 16 -->
             <div class="item">
               <div class="left">
                 <div class="name">Cold Brew</div>
@@ -526,7 +540,11 @@
               </div>
               <div class="right">
                 <div class="tag">12 oz / 16 oz</div>
-                <div class="price"><small>$</small>3.50 <span style="opacity:.55">/</span> <small>$</small>4.25</div>
+                <div class="price">
+                  <small>$</small><span data-id="cold_brew_12">3.50</span>
+                  <span style="opacity:.55">/</span>
+                  <small>$</small><span data-id="cold_brew_16">4.25</span>
+                </div>
               </div>
             </div>
 
@@ -537,9 +555,10 @@
               </div>
               <div class="right">
                 <div class="tag">Único</div>
-                <div class="price"><small>$</small>4.25</div>
+                <div class="price"><small>$</small><span data-id="affogato">4.25</span></div>
               </div>
             </div>
+
           </div>
 
           <div class="note">
@@ -560,6 +579,8 @@
 
         <div class="content">
           <div class="list">
+
+            <!-- Chai: 12 / 16 -->
             <div class="item">
               <div class="left">
                 <div class="name">Chai Latte</div>
@@ -567,10 +588,15 @@
               </div>
               <div class="right">
                 <div class="tag">12 oz / 16 oz</div>
-                <div class="price"><small>$</small>3.50 <span style="opacity:.55">/</span> <small>$</small>4.25</div>
+                <div class="price">
+                  <small>$</small><span data-id="chai_12">3.50</span>
+                  <span style="opacity:.55">/</span>
+                  <small>$</small><span data-id="chai_16">4.25</span>
+                </div>
               </div>
             </div>
 
+            <!-- Matcha: 8 / 12 -->
             <div class="item">
               <div class="left">
                 <div class="name">Matcha Latte</div>
@@ -578,9 +604,14 @@
               </div>
               <div class="right">
                 <div class="tag">8 oz / 12 oz</div>
-                <div class="price"><small>$</small>3.25 <span style="opacity:.55">/</span> <small>$</small>3.75</div>
+                <div class="price">
+                  <small>$</small><span data-id="matcha_8">3.25</span>
+                  <span style="opacity:.55">/</span>
+                  <small>$</small><span data-id="matcha_12">3.75</span>
+                </div>
               </div>
             </div>
+
           </div>
 
           <div class="note">
@@ -592,15 +623,111 @@
 
     <footer>
       <div>© <span id="year"></span> ROEST · Menú digital</div>
-      <div>Pregunta por el “Menú Especial” ⭐</div>
+      <div>Precios sincronizados desde Sheets ✅</div>
     </footer>
   </div>
 
   <script>
+    // =========================
+    // CONFIG (Sheets + Sucursal)
+    // =========================
+    const URL_BEBIDAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQdx38gnDrwyyK2g1pGp6JrYKsZ0bUdCBCg229nNS6hknOZQHYTngMf1dQbClWzGyTYjy1ItLlvVL3b/pub?gid=0&single=true&output=csv";
+    const URL_PRECIOS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQdx38gnDrwyyK2g1pGp6JrYKsZ0bUdCBCg229nNS6hknOZQHYTngMf1dQbClWzGyTYjy1ItLlvVL3b/pub?gid=1084736217&single=true&output=csv";
+
+    // Cambia esto para otra sucursal:
+    const SUCURSAL = "ROEST_CAYAMBE";
+
+    // =========================
+    // Helpers
+    // =========================
+    function toMoney(n){
+      const num = Number(String(n).replace(/[^\d.]/g,""));
+      if (Number.isFinite(num)) return num.toFixed(2);
+      return null;
+    }
+
+    // CSV parser que soporta comillas y comas dentro de comillas
+    function parseCSV(text){
+      const rows = [];
+      let row = [];
+      let cur = "";
+      let inQuotes = false;
+
+      for (let i=0; i<text.length; i++){
+        const ch = text[i];
+        const next = text[i+1];
+
+        if (ch === '"' ){
+          if (inQuotes && next === '"'){ // escaped quote
+            cur += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (ch === "," && !inQuotes){
+          row.push(cur);
+          cur = "";
+        } else if ((ch === "\n" || ch === "\r") && !inQuotes){
+          if (ch === "\r" && next === "\n") i++;
+          row.push(cur);
+          if (row.length > 1 || row[0].trim() !== "") rows.push(row);
+          row = [];
+          cur = "";
+        } else {
+          cur += ch;
+        }
+      }
+      // last cell
+      row.push(cur);
+      if (row.length > 1 || row[0].trim() !== "") rows.push(row);
+
+      if (!rows.length) return [];
+
+      const headers = rows.shift().map(h => h.trim());
+      return rows.map(cols => {
+        const obj = {};
+        headers.forEach((h,idx) => obj[h] = (cols[idx] ?? "").trim());
+        return obj;
+      });
+    }
+
+    async function cargarPrecios(){
+      const [csvBebidas, csvPrecios] = await Promise.all([
+        fetch(URL_BEBIDAS, { cache: "no-store" }).then(r => r.text()),
+        fetch(URL_PRECIOS, { cache: "no-store" }).then(r => r.text())
+      ]);
+
+      const bebidas = parseCSV(csvBebidas); // disponible para futuro (activar/desactivar items)
+      const preciosAll = parseCSV(csvPrecios);
+
+      // mapa de precios por id para SUCURSAL
+      const map = {};
+      preciosAll
+        .filter(p => (p.sucursal || "").trim() === SUCURSAL)
+        .forEach(p => {
+          const id = (p.id || "").trim();
+          const val = toMoney(p.precio);
+          if (id && val) map[id] = val;
+        });
+
+      // Actualiza spans con data-id
+      document.querySelectorAll("[data-id]").forEach(el => {
+        const id = el.getAttribute("data-id");
+        if (map[id]) el.textContent = map[id];
+      });
+
+      // etiqueta sucursal
+      const tag = document.getElementById("sucursalTag");
+      if (tag) tag.textContent = SUCURSAL;
+    }
+
+    // Año
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Cargar precios desde Sheets
+    cargarPrecios().catch(err => {
+      console.error("Error cargando precios:", err);
+    });
   </script>
 </body>
 </html>
-
-
-
