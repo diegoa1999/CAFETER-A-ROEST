@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ROEST — Menú</title>
+
+  <!-- Tipografías (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg0:#0b0b0d;
+      --bg1:#111114;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.035);
+      --stroke: rgba(255,255,255,.12);
+      --text:#f6f6f7;
+      --muted:#b7b8c1;
+      --muted2:#8c8ea0;
+      --accent:#c7a06a;
+      --accent2:#e0c08c;
+      --shadow: 0 22px 55px rgba(0,0,0,.45);
+      --radius: 26px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 15% -5%, rgba(199,160,106,.22), transparent 55%),
+        radial-gradient(900px 650px at 90% 0%, rgba(255,255,255,.10), transparent 55%),
+        radial-gradient(800px 600px at 85% 110%, rgba(199,160,106,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 26px 22px 30px;
+    }
+
+    /* ===== Header ===== */
+    header{
+      display:flex;
+      gap:16px;
+      align-items:flex-end;
+      justify-content:space-between;
+      padding: 10px 6px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      margin-bottom: 18px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .brand .logoRow{
+      display:flex;
+      align-items:baseline;
+      gap:12px;
+    }
+
+    .brand h1{
+      margin:0;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 44px;
+      line-height: 1;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(199,160,106,.25);
+      background: rgba(199,160,106,.10);
+      color: #f6ead7;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      user-select:none;
+    }
+
+    .badge .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(199,160,106,.15);
+    }
+
+    .subtitle{
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .topInfo{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(8px);
+      color: var(--muted);
+      font-size: 13px;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .chip b{ color: var(--text); font-weight: 700; }
+
+    /* ===== Layout ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr 1.25fr .9fr;
+      gap:16px;
+      margin-top: 14px;
+    }
+
+    .card{
+      position:relative;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-120px -240px auto auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle at 30% 30%, rgba(199,160,106,.22), transparent 60%);
+      transform: rotate(10deg);
+      pointer-events:none;
+    }
+
+    .cardHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .titleRow{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .icon{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      background: rgba(199,160,106,.14);
+      border: 1px solid rgba(199,160,106,.22);
+      font-size: 18px;
+    }
+
+    .cardHead h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .hint{
+      color: var(--muted2);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space:nowrap;
+    }
+
+    .content{
+      padding: 14px 14px 16px;
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    /* ===== Item ===== */
+    .item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      padding: 12px 12px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .item:hover{
+      transform: translateY(-2px);
+      border-color: rgba(199,160,106,.35);
+      background: rgba(0,0,0,.22);
+    }
+
+    .left{
+      min-width: 0;
+    }
+
+    .name{
+      font-weight: 800;
+      letter-spacing: .01em;
+      line-height: 1.15;
+      font-size: 15px;
+    }
+
+    .meta{
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.25;
+    }
+
+    .right{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:6px;
+      flex-shrink:0;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 12.5px;
+      white-space:nowrap;
+    }
+
+    .price{
+      display:inline-flex;
+      align-items:baseline;
+      gap:6px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(199,160,106,.26);
+      background: rgba(199,160,106,.12);
+      color: #f6ead7;
+      font-weight: 900;
+      letter-spacing: .02em;
+      white-space:nowrap;
+    }
+    .price small{
+      font-weight: 700;
+      color: rgba(246,234,215,.75);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size: 11px;
+    }
+
+    .note{
+      margin-top: 12px;
+      padding: 12px 12px;
+      border-radius: 18px;
+      background: rgba(199,160,106,.10);
+      border: 1px solid rgba(199,160,106,.18);
+      color: #f2e6d6;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .note b{ color:#fff; }
+
+    footer{
+      margin-top: 16px;
+      padding: 12px 6px 0;
+      color: var(--muted2);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1100px){
+      header{ flex-direction:column; align-items:flex-start; }
+      .topInfo{ justify-content:flex-start; }
+      .grid{ grid-template-columns: 1fr; }
+      .brand h1{ font-size: 38px; }
+    }
+    @media (min-width: 1600px){
+      .wrap{ max-width: 1600px; }
+      .brand h1{ font-size: 54px; }
+      .name{ font-size: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logoRow">
+          <h1>ROEST</h1>
+          <span class="badge"><span class="dot"></span> MENÚ DIGITAL</span>
+        </div>
+        <div class="subtitle">Café de especialidad · Servicio rápido</div>
+      </div>
+
+      <div class="topInfo">
+        <div class="chip">➕ Sabores extra: <b>Vainilla</b> · <b>Caramelo</b> · <b>Avellana</b></div>
+        <div class="chip">💵 Precios en <b>USD</b></div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <!-- CAFÉ CALIENTE -->
+      <article class="card">
+        <div class="cardHead">
+          <div class="titleRow">
+            <div class="icon">☕</div>
+            <h2>Café caliente</h2>
+          </div>
+          <div class="hint">Espresso bar</div>
+        </div>
+
+        <div class="content">
+          <div class="list">
+            <div class="item">
+              <div class="left">
+                <div class="name">Espresso</div>
+                <div class="meta">Simple / Doble</div>
+              </div>
+              <div class="right">
+                <div class="tag">2 oz</div>
+                <div class="price"><small>$</small>1.75 <span style="opacity:.55">/</span> <small>$</small>2.00</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Americano</div>
+                <div class="meta">Espresso + agua</div>
+              </div>
+              <div class="right">
+                <div class="tag">6 oz</div>
+                <div class="price"><small>$</small>2.25</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Cappuccino</div>
+                <div class="meta">Espresso + leche</div>
+              </div>
+              <div class="right">
+                <div class="tag">6 oz</div>
+                <div class="price"><small>$</small>2.50</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Flat White</div>
+                <div class="meta">Textura sedosa</div>
+              </div>
+              <div class="right">
+                <div class="tag">6 oz</div>
+                <div class="price"><small>$</small>2.50</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Latte</div>
+                <div class="meta">Espresso + leche</div>
+              </div>
+              <div class="right">
+                <div class="tag">10 oz</div>
+                <div class="price"><small>$</small>2.75</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Latte sabores</div>
+                <div class="meta">Vainilla · Caramelo · Avellana</div>
+              </div>
+              <div class="right">
+                <div class="tag">10 oz</div>
+                <div class="price"><small>$</small>3.25</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Moccaccino</div>
+                <div class="meta">Latte + chocolate</div>
+              </div>
+              <div class="right">
+                <div class="tag">12 oz</div>
+                <div class="price"><small>$</small>3.50</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Chocolate caliente</div>
+                <div class="meta">Cacao cremoso</div>
+              </div>
+              <div class="right">
+                <div class="tag">8 oz / 12 oz</div>
+                <div class="price"><small>$</small>3.00 <span style="opacity:.55">/</span> <small>$</small>3.50</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            <b>Tip:</b> Mantén “sabores” como extra (misma base, mejor margen).
+          </div>
+        </div>
+      </article>
+
+      <!-- CAFÉ FRÍO -->
+      <article class="card">
+        <div class="cardHead">
+          <div class="titleRow">
+            <div class="icon">❄️</div>
+            <h2>Café frío</h2>
+          </div>
+          <div class="hint">Iced & Cold Brew</div>
+        </div>
+
+        <div class="content">
+          <div class="list">
+            <div class="item">
+              <div class="left">
+                <div class="name">Iced Americano</div>
+                <div class="meta">Espresso + hielo</div>
+              </div>
+              <div class="right">
+                <div class="tag">12 oz</div>
+                <div class="price"><small>$</small>3.00</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Iced Latte</div>
+                <div class="meta">Espresso + leche fría</div>
+              </div>
+              <div class="right">
+                <div class="tag">12 oz</div>
+                <div class="price"><small>$</small>3.25</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Iced Latte sabores</div>
+                <div class="meta">Vainilla · Caramelo · Avellana</div>
+              </div>
+              <div class="right">
+                <div class="tag">16 oz</div>
+                <div class="price"><small>$</small>3.75</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Frappuccino</div>
+                <div class="meta">Café + hielo + crema</div>
+              </div>
+              <div class="right">
+                <div class="tag">12 oz</div>
+                <div class="price"><small>$</small>3.50</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Frappuccino sabores</div>
+                <div class="meta">Vainilla · Caramelo · Avellana</div>
+              </div>
+              <div class="right">
+                <div class="tag">16 oz</div>
+                <div class="price"><small>$</small>4.00</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Cold Brew</div>
+                <div class="meta">Extracción en frío</div>
+              </div>
+              <div class="right">
+                <div class="tag">12 oz / 16 oz</div>
+                <div class="price"><small>$</small>3.50 <span style="opacity:.55">/</span> <small>$</small>4.25</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Affogato</div>
+                <div class="meta">Helado + espresso</div>
+              </div>
+              <div class="right">
+                <div class="tag">Único</div>
+                <div class="price"><small>$</small>4.25</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            <b>Recomendado:</b> Cold Brew para “café fuerte y suave”.
+          </div>
+        </div>
+      </article>
+
+      <!-- NO CAFÉ -->
+      <article class="card">
+        <div class="cardHead">
+          <div class="titleRow">
+            <div class="icon">🍵</div>
+            <h2>No café</h2>
+          </div>
+          <div class="hint">Chai · Matcha</div>
+        </div>
+
+        <div class="content">
+          <div class="list">
+            <div class="item">
+              <div class="left">
+                <div class="name">Chai Latte</div>
+                <div class="meta">Especias + leche</div>
+              </div>
+              <div class="right">
+                <div class="tag">12 oz / 16 oz</div>
+                <div class="price"><small>$</small>3.50 <span style="opacity:.55">/</span> <small>$</small>4.25</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="left">
+                <div class="name">Matcha Latte</div>
+                <div class="meta">Matcha + leche</div>
+              </div>
+              <div class="right">
+                <div class="tag">8 oz / 12 oz</div>
+                <div class="price"><small>$</small>3.25 <span style="opacity:.55">/</span> <small>$</small>3.75</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            <b>Plus:</b> ideal para niños y personas que no toman café.
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> ROEST · Menú digital</div>
+      <div>Pregunta por el “Menú Especial” ⭐</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+
